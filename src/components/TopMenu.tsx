@@ -14,9 +14,9 @@ export default function TopMenu() {
 
   const isActive = (path: string) => {
     if (pageSegment.length === 1) {
-      return path === "/" ? "text-[#F40000]" : "text-white"
+      return path === "/" ? "text-s-red" : "text-white"
     } else {
-      return path === `/${pageSegment[1]}` ? "text-[#F40000]" : "text-white"
+      return path === `/${pageSegment[1]}` ? "text-s-red" : "text-white"
     }
   }
 
@@ -41,9 +41,9 @@ export default function TopMenu() {
   const rightMenuItems = menuItems.slice(3)
 
   return (
-    <div className="w-full h-20 absolute z-50 px-4 md:px-[5%] lg:px-[10%] xl:px-[15%] py-4 flex flex-row items-center">
+    <div className="absolute w-full h-20 z-50 px-4 md:px-[5%] lg:px-[10%] xl:px-[15%] py-4 flex flex-row items-center">
       {/* Desktop menu */}
-      <div className="hidden lg:flex flex-row justify-between w-full h-full items-center font-topmenu font-semibold text-xl">
+      <div className="hidden lg:flex flex-row justify-between w-full h-full items-center  font-semibold text-xl">
         {/* Left menu items */}
         <div className="flex space-x-6">
           {leftMenuItems.map((item, index) => (
@@ -99,7 +99,7 @@ export default function TopMenu() {
       <div
         className={`lg:hidden absolute top-16 left-0 right-0 bg-black/90 transition-all duration-300 ${isMenuOpen ? "max-h-[500px] py-4" : "max-h-0 overflow-hidden"}`}
       >
-        <div className="flex flex-col items-center gap-4 font-topmenu font-semibold text-xl">
+        <div className="flex flex-col items-center gap-4  font-semibold text-xl">
           {menuItems.map((item, index) => (
             <Link
               key={index}
