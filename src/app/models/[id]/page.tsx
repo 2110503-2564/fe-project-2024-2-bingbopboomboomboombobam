@@ -1,8 +1,8 @@
-export default function Car({params}:{params: {id: string}}) {
-    return (
-      <div>
-        Car {params.id}
-      </div>
-    );
-  }
-  
+export default async function Car({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  return <div>Car: {slug}</div>
+}
