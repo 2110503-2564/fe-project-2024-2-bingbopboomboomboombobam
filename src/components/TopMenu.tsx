@@ -14,9 +14,9 @@ export default function TopMenu() {
 
   const isActive = (path: string) => {
     if (pageSegment.length === 1) {
-      return path === "/" ? "text-s-red" : "text-white"
+      return path === "/" ? "text-red-600" : "text-white"
     } else {
-      return path === `/${pageSegment[1]}` ? "text-s-red" : "text-white"
+      return path === `/${pageSegment[1]}` ? "text-red-600" : "text-white"
     }
   }
 
@@ -47,7 +47,7 @@ export default function TopMenu() {
         {/* Left menu items */}
         <div className="flex space-x-6">
           {leftMenuItems.map((item, index) => (
-            <Link key={index} href={item.href} className={`${linkStyle} ${isActive(item.href)} hover:text-[#ff5c5c]`}>
+            <Link key={index} href={item.href} className={`${linkStyle} ${isActive(item.href)} hover:text-red-300`}>
               <span className="relative z-10">{item.label}</span>
               <div className="absolute top-0 right-0 bottom-1 left-0 bg-black/20 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </Link>
@@ -62,7 +62,7 @@ export default function TopMenu() {
         {/* Right menu items */}
         <div className="flex space-x-6">
           {rightMenuItems.map((item, index) => (
-            <Link key={index} href={item.href} className={`${linkStyle} ${isActive(item.href)} hover:text-[#ff5c5c]`}>
+            <Link key={index} href={item.href} className={`${linkStyle} ${isActive(item.href)} hover:text-red-300`}>
               <span className="relative z-10">{item.label}</span>
               <div className="absolute top-0 right-0 bottom-1 left-0 bg-black/20 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </Link>
@@ -104,7 +104,7 @@ export default function TopMenu() {
             <Link
               key={index}
               href={item.href}
-              className={`${linkStyle} ${isActive(item.href)} hover:text-[#ff5c5c] w-full text-center`}
+              className={`${linkStyle} ${isActive(item.href)} hover:text-red-300 w-full text-center`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}

@@ -12,21 +12,21 @@ export default function WhyCard({
   picture?: string,
 }) {
   return (
-    <div className="relative w-72 h-full flex flex-col justify-center items-start bg-[#3B3C41]">
-      <div className="px-4 z-2 text-white drop-shadow-md">
-        <div className="text-3xl font-semibold">{head}</div>
-        {title && <div className="text-xl font-semibold">{title}</div>}
-        {description && <div className="text-base font-normal">{description}</div>}
-      </div>
-      <div className="absolute h-full w-full bg-black/30 z-1" />
+    <div className="relative w-72 h-42 bg-s-grey-400">
+      <div className="absolute h-full w-full bg-black/30 z-2" />
+        <div className="relative z-3 text-white drop-shadow-md flex flex-col gap-1 justify-center items-start p-5 w-full h-full">
+          <div className="text-3xl font-semibold">{head}</div>
+          {title && <div className="text-xl font-semibold">{title}</div>}
+          {description && <div className="text-base font-normal">{description}</div>}
+        </div>
       {picture && (
-        <Image
-          className="object-cover"
-          src={picture}
-          fill
-          alt="car picture"
-        />
-      )}
+          <Image
+            className="object-cover z-1"
+            src={picture}
+            fill
+            alt="car picture"
+          />
+        )}
     </div>
   );
 }

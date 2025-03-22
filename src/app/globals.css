@@ -22,7 +22,14 @@
 }
 
 @theme {
-  --color-s-red: #F40000
+  --color-test: #d820b09c;
+  --color-s-grey-100: #A8A8AA;
+  --color-s-grey-400: #565660;
+  --color-s-grey-600: #3F3F46;
+  --color-s-grey-900: #333;
+  --color-s-grey-950: #444;
+  --color-s-grey-1000: #27272A;
+  --color-s-grey-1100: #1D1E1F;
 }
 
 body {
