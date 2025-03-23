@@ -56,7 +56,7 @@ export default function TopMenu() {
 
         {/* Logo */}
         <Link href={"/"}>
-          <Image src={logo || "/placeholder.svg"} className="drop-shadow-2xl" alt="website logo" width={45} />
+          <Image src={logo || "/placeholder.svg"} alt="website logo" width={45} />
         </Link>
 
         {/* Right menu items */}
