@@ -17,11 +17,12 @@ export default function Home() {
 
         <div className="grow max-w-[880px] gap-2 flex flex-wrap justify-center items-center pb-5 pt-5">
           <OfferCard />
-          <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-          <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-          <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-          <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-          <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          <CarCard id={`JubJub`} img='' carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          <CarCard id={`JubJub`} img='' carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          <CarCard id={`JubJub`} img='' carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          <CarCard id={`JubJub`} img='' carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          <CarCard id={`JubJub`} img='' carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+          
         </div>
 
 

@@ -1,20 +1,29 @@
-import CarCard from "@/components/CarCard";
+import { getServerSession } from "next-auth";
+import getBookings from "../libs/bookings/getBookings";
+import { authOptions } from "../api/auth/[...nextauth]/[...nextauth]";
+import MyBookingCard from "@/components/MyBookingCard";
+function getImage(color:string,image:string[][]):string{
+  const foundItem = image.find((item) => item[0] === color);
+  return foundItem ? foundItem[1] : '';
+}
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+}
 
-export default function MyBookings() {
+export default async function MyBookings() {
+  const session = await getServerSession(authOptions); // Fetch the session on the server side
+
+  const bookingsJson:BookingsJson = await getBookings(session?.user?.token ?? '');
+  const data:Booking[] = bookingsJson.data;
   return (
     <div className="p-20 pt-30 flex flex-row w-full justify-center flex-wrap gap-5">
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
-      <CarCard carname="Jaguar XJL 2016" price="$96.50" seat="2 PEOPLE" transmission="7-speed ISR" driveTrain="AWS" />
+      {data.map((item,index)=><MyBookingCard key={index} location={item.pickup_location} id={item._id} brand={item.car.brand} model={item.car.model} name={item.name} date={formatDate(item.startDate)} uid={item.user._id} img={getImage(item.color,item.car.image)}/>
+)}
     </div>
   )
 }
