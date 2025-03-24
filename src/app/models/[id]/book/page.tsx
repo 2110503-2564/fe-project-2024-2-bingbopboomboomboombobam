@@ -1,5 +1,6 @@
-import LeftBookingPage from "@/components/LeftBookingPage"
-import RightBookingPage from "@/components/RightBookingPage"
+import LeftBookingPage from "@/components/LeftBookPage";
+import RightBookingPage from "@/components/RightBookPage";
+
 
 
 
