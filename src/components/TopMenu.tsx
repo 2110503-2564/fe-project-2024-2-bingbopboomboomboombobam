@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 import { useState } from "react"
 import logo from "../../public/logo.svg" // import ไฟล์รูปภาพ
+import { useSession } from "next-auth/react"
 
 export default function TopMenu() {
   const pathname = usePathname()
@@ -39,7 +40,7 @@ export default function TopMenu() {
   // Split menu items for desktop layout
   const leftMenuItems = menuItems.slice(0, 3)
   const rightMenuItems = menuItems.slice(3)
-
+  const { data:session} = useSession();
   return (
     <div className="absolute w-full h-20 z-50 px-4 md:px-[5%] lg:px-[10%] xl:px-[15%] py-4 flex flex-row items-center">
       {/* Desktop menu */}
@@ -73,13 +74,7 @@ export default function TopMenu() {
       {/* Mobile user profile */}
       <div className="size-11 rounded-full absolute right-4 md:right-10 top-4 bg-white shadow-2xl flex items-center justify-center z-10">
         <div className="h-10 w-10 rounded-full relative overflow-hidden">
-          <Image
-            src="https://images.pexels.com/photos/2876486/pexels-photo-2876486.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="User Profile"
-            fill
-            className="object-cover"
-            sizes="100%"
-          />
+          {session?.user?.name}
         </div>
       </div>
 
