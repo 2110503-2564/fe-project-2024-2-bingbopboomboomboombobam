@@ -74,7 +74,7 @@ export default function TopMenu() {
       <div className="size-11 rounded-full absolute right-4 md:right-10 top-4 bg-white shadow-2xl flex items-center justify-center z-10">
         <div className="h-10 w-10 rounded-full relative overflow-hidden">
           <Image
-            src="https://img.freepik.com/free-photo/portrait-upset-american-black-person_23-2148749581.jpg?t=st=1742275912~exp=1742279512~hmac=bfe9704f25e75846013e57dd3ca86b9f236fb5d562f12fb0a31869aeea89d44d&w=740"
+            src="https://images.pexels.com/photos/2876486/pexels-photo-2876486.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="User Profile"
             fill
             className="object-cover"
