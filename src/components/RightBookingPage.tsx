@@ -8,7 +8,7 @@ import Info from "./Info";
 export default function RightBookingPage() {
     const [toggle, setToggle] = useState(0)
     return (
-        <div className="flex flex-col justify-between item-start">
+        <div className="flex flex-col justify-between item-start w-96">
             <StepIndicator steps={toggle} currentStep={toggle} />
             <div className="relative h-[425px] flex flex-col items-center gap-2 pb-12">
                 {
@@ -25,7 +25,7 @@ export default function RightBookingPage() {
                         <Info data={[["Daily Rate", "$1,200"], ["Number of Days", "4"], ["Deposit", "$1,000"], ["line:", "line"], ["Total", "$5,800"]]} />
                     </>
                 }
-                <button onClick={() => setToggle((toggle+1)%3)} type="button" className={`w-full py-2 absolute bottom-0 ${toggle==2?'bg-red-600 text-white hover:bg-red-500':'bg-white text-black hover:bg-gray-200'} font-semibold rounded-md  focus:outline-none`}>
+                <button onClick={() => setToggle((toggle+1)%3)} type="button" className={`w-full py-2 absolute bottom-0 ${toggle==2?'bg-red-600 text-white hover:bg-red-700':'bg-white text-black hover:bg-gray-300'} font-semibold rounded-md  focus:outline-none`}>
                     {toggle==2?'Confirmed':'Next'}
                 </button>
 

@@ -25,7 +25,7 @@ export default function BookingInfo() {
                     placeholder="Start Date"
                     className="w-1/2 px-2 py-1 rounded-l-md focus:outline-none focus:ring-1 focus:ring-red-500 placeholder:font-extralight placeholder:text-sm placeholder:text-center"
                 />
-                <div className="h-full w-[2px] bg-s-grey-950 relative z-10"/>
+                <div className="h-7 w-[2px] bg-s-grey-950 relative z-10"/>
                 <input
                     id="book date"
                     name="book date"
