@@ -1,15 +1,11 @@
-'use client'
 import ColorPicker from "@/components/ColorPicker";
-import Detail from "@/components/Detail";
 import MainCarDetails from "@/components/MainCarDetails";
-import OptionMenu from "@/components/OptionMenu";
 import OtherCarDetails from "@/components/OtherCarDetails";
 import ShowCar from "@/components/ShowCar";
-import { Cog, Fuel, Gauge, LifeBuoy, Luggage, Users } from "lucide-react";
-import Image from "next/image";
-import { useParams } from "next/navigation";
-export default function Car() {
-    const params = useParams()
+
+export default async function Car({ params }: Props) {
+    const { id } = await params
+    console.log(id);
     return (
         <div className="pt-20 h-screen">
             <div className="h-full flex flex-row justify-between items-center">
@@ -18,7 +14,7 @@ export default function Car() {
                 </div>
                 <div className="h-full w-2/3 flex flex-col justify-between items-center">
                     <div className="grow w-full flex justify-center items-center">
-                        <ShowCar/>
+                        <ShowCar />
                     </div>
                     <div className="h-30 w-full flex flex-col justify-between items-center">
                         <MainCarDetails />
