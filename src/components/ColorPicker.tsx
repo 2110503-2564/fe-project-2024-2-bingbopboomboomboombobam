@@ -10,9 +10,10 @@ interface ColorOption {
 interface ColorPickerProps {
   defaultColor?: string
   onChange?: (color: string) => void
+  isVertical?: boolean  // Add a prop to toggle between vertical and horizontal layouts
 }
 
-export default function ColorPicker({ defaultColor = "#FF0000", onChange }: ColorPickerProps) {
+export default function ColorPicker({ defaultColor = "#FF0000", onChange, isVertical = false }: ColorPickerProps) {
   const [selectedColor, setSelectedColor] = useState(defaultColor)
 
   const colorOptions: ColorOption[] = [
@@ -29,7 +30,9 @@ export default function ColorPicker({ defaultColor = "#FF0000", onChange }: Colo
   }
 
   return (
-    <div className="h-12 w-max flex items-center justify-start gap-4  rounded-lg">
+    <div
+      className={`flex items-center justify-start gap-2 rounded-lg ${isVertical ? "flex-col" : "flex-row"}`}
+    >
       {colorOptions.map((color) => (
         <button
           key={color.name}
@@ -48,4 +51,3 @@ export default function ColorPicker({ defaultColor = "#FF0000", onChange }: Colo
     </div>
   )
 }
-
