@@ -6,15 +6,23 @@ import { OrbitControls, Environment, PerspectiveCamera } from "@react-three/drei
 import CarModel from "@/components/CarModel";
 
 export default function ModelViewer() {
-  const [autoRotate, setAutoRotate] = useState(false);
+  const [autoRotate, setAutoRotate] = useState(true);
   
   return (
     <div className="" style={{ height: "400px" }}>
+      <div className="absolute top-24 right-4 z-20">
+        <button 
+          onClick={() => setAutoRotate(!autoRotate)}
+          className="py-2 px-4 bg-black text-white rounded-md opacity-70 hover:opacity-100 transition font-mono"
+        >
+          {autoRotate ? "Stop Rotation" : "Start Rotation"}
+        </button>
+      </div>
       
       <Canvas 
         shadows 
         className="w-full h-full"
-        dpr={[0.8, 1.5]} // Lower resolution to improve performance
+        dpr={[0.8, 1.5]}
         gl={{ 
           powerPreference: "default",
           antialias: false,
@@ -22,7 +30,6 @@ export default function ModelViewer() {
           depth: true,
           alpha: true
         }}
-        frameloop="demand" // Only render when needed
       >
         
         {/* Camera */}
