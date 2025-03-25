@@ -1,11 +1,12 @@
 'use client'
-import { useEffect, useState } from "react";
-import ModelViewer from "./ModelViewer";
-import { CAR_MODELS, CarModel } from "@/data/carModels";
-import { useParams } from "next/navigation";
-import { notFound } from "next/navigation";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Box, GalleryVertical } from "lucide-react";
+
+const ModelViewer = dynamic(() => import("./ModelViewer"), { 
+  ssr: false,
+  loading: () => <div className="flex items-center justify-center h-full">Loading 3D model...</div>
+});
 
 export default function ShowCar({car,is3d,setIs3d}:{car:Car,is3d:boolean,setIs3d:Function}) {
     return (
@@ -13,8 +14,12 @@ export default function ShowCar({car,is3d,setIs3d}:{car:Car,is3d:boolean,setIs3d
             <div className="text-center text-md text-s-grey-100 max-w-[800px] font-light">
                 {car.quote}
             </div>
-            <div className="w-full grow relative max-w-[1000px] max-h-[350px]">
-                <Image src={car.image?.[0]?.[1] || "/s-car.png"} fill alt="car" className="object-contain" />
+            <div className="w-full grow relative max-w-[1000px] max-h-[350px] ">
+                {is3d ? (
+                    <ModelViewer key="model-viewer" />
+                ) : (
+                    <Image src={car.image?.[0]?.[1] || "/s-car.png"} fill alt="car" className="object-contain" />
+                )}
             </div>
             <div className="relative right-60">
                 <div className="text-s-grey-100 text-3xl font-bold">

@@ -45,10 +45,10 @@ export default function Car() {
                     </div>
                     <div className="h-full w-1/6 flex flex-row items-start justify-start">
                         <div onClick={() => setIs3d(!is3d)} className="flex hover:cursor-pointer">
-                            <div className={`${!is3d ? 'bg-s-grey-1100' : 'bg-s-grey-950'} flex items-center justify-center rounded-l-md border-2 border-s-grey-950`}>
+                            <div className={`${is3d ? 'bg-s-grey-1100' : 'bg-s-grey-950'} flex items-center justify-center rounded-l-md border-2 border-s-grey-950`}>
                                 <div className="h-full  p-1"><GalleryVertical size={20} className="text-s-grey-100" /> </div>
                             </div>
-                            <div className={`${is3d ? 'bg-s-grey-1100' : 'bg-s-grey-950'} flex items-center justify-center rounded-r-md border-2 border-s-grey-950`}>
+                            <div className={`${!is3d ? 'bg-s-grey-1100' : 'bg-s-grey-950'} flex items-center justify-center rounded-r-md border-2 border-s-grey-950`}>
                                 <div className="h-full  p-1"><Box size={20} className="text-s-grey-100" /> </div>
 
                             </div>
