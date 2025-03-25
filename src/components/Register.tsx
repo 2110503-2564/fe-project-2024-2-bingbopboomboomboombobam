@@ -1,9 +1,12 @@
 'use client'
 
 import userRegister from "@/app/libs/auth/userRegister";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 export default function RegisterForm() {
+    const { data: session } = useSession();
+
     const [registerForm, setRegisterForm] = useState({
         name: "",
         surname: "",
@@ -42,7 +45,7 @@ export default function RegisterForm() {
                 </div>
             </div>
 
-            <div className="w-[450px] bg-s-grey-1100/50 rounded-2xl px-7 py-5 shadow-md backdrop-blur-xl">
+            {!session ? <div className="w-[450px] bg-s-grey-1100/50 rounded-2xl px-7 py-5 shadow-md backdrop-blur-xl">
                 <form
                     onSubmit={(e) => {
                         e.preventDefault(); // ป้องกันการรีเฟรชหน้า
@@ -97,17 +100,23 @@ export default function RegisterForm() {
                         <button
                             type="submit"
                             disabled={isSubmitting} // ล็อกปุ่มเมื่อกำลังทำงาน
-                            className={`w-full font-medium p-2 rounded-md cursor-pointer ${
-                                isSubmitting
-                                    ? "bg-gray-500 text-gray-300 cursor-not-allowed"
-                                    : "bg-red-600 hover:bg-red-700 text-white"
-                            }`}
+                            className={`w-full font-medium p-2 rounded-md cursor-pointer ${isSubmitting
+                                ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+                                : "bg-red-600 hover:bg-red-700 text-white"
+                                }`}
                         >
                             {isSubmitting ? "Processing..." : "Register"}
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> : <div className="w-[450px] flex flex-col text-white gap-2">
+                <div className="text-6xl font-semibold">
+                    Welcome 
+                </div>
+                <div className="text-3xl font-normal">
+                    {session.user.name} to our Website{" :)"}
+                </div>
+            </div>}
         </div>
     );
 }

@@ -7,6 +7,7 @@ import { Menu } from "lucide-react"
 import { useState } from "react"
 import logo from "../../public/logo.svg" // import ไฟล์รูปภาพ
 import { useSession } from "next-auth/react"
+import { div } from "three/tsl"
 
 export default function TopMenu() {
   const pathname = usePathname()
@@ -72,10 +73,8 @@ export default function TopMenu() {
       </div>
       
       {/* Mobile user profile */}
-      <div className="size-11 rounded-full absolute right-4 md:right-10 top-4 bg-white shadow-2xl flex items-center justify-center z-10">
-        <div className="h-10 w-10 rounded-full relative overflow-hidden">
-          {session?.user?.name}
-        </div>
+      <div className="text-xl flex flex-col absolute md:right-5 justify-center items-center text-red-600 font-bold">
+      {session ?   <div><Link href="/api/auth/signout">Logout</Link></div>:<Link href="/api/auth/signin">Login</Link>}
       </div>
 
       {/* Mobile menu button */}
