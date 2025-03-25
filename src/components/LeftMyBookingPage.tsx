@@ -1,18 +1,18 @@
+import { getImage } from "@/app/libs/function/function";
 import Image from "next/image";
-import ConditionCard from "./ConditionCard";
-import ColorPicker from "./ColorPicker";
 
-export default function LeftMyBookingPage() {
+
+export default function LeftMyBookingPage({booking}:{booking:Booking}) {
     return (
         <div className="flex flex-col">
             <div className="text-s-grey-100 text-4xl font-bold">
-                LAMBORGHINI
+                {booking.car.brand.toUpperCase()}
             </div>
             <div className="text-white text-7xl font-bold">
-                AVENTADOR
+                {booking.car.model.toUpperCase()}
             </div>
             <div className="relative w-[600px] h-[225px]">
-                <Image className="object-cover object-center" src="/s-car.png" fill alt='main car' priority />
+                <Image className="object-cover object-center" src={getImage(booking.color,booking.car.image)} fill alt='main car' priority />
             </div>
         </div>
     )

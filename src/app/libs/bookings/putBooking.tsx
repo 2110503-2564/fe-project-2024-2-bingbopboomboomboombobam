@@ -1,20 +1,17 @@
-type UserBooking = {
+type PutBooking = {
     name: string;
     email: string;
     ssn: string;
     sex: string;
     telephone_number: string;
     birthDate: string;
-  };
-  
-  type AdminBooking = UserBooking & {
     startDate: string;
     endDate: string;
     pickup_location: string;
   };
-  type BookingPayload = UserBooking | AdminBooking;
+  
 
-export default async function putBooking(token:string,bid:string,data:BookingPayload){
+export default async function putBooking(token:string,bid:string,data:PutBooking){
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings/${bid}`,{
         method: "PUT",
         headers:{

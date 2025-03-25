@@ -57,10 +57,36 @@ interface CarsJson {
     count: number,
     data: Car[]
 }
+interface CarJson {
+    success: boolean,
+    count: number,
+    data: Car
+}
 interface BookingsJson {
     success: boolean,
     count: number,
     data: Booking[]
+}
+interface BookingJson {
+    success: boolean,
+    count: number,
+    data: Booking
+}
+
+
+interface CustomerForm {
+    name: string, 
+    surname: string, 
+    sex: string, 
+    birthDate: string, 
+    ssn: string, 
+    tel: string, 
+    email: string
+}
+interface BookingForm {
+    location: string,
+    startDate: string,
+    endDate:string,
 }
 
 interface Props {

@@ -1,9 +1,10 @@
 interface Booking {
     car: string;
+    color:string;
     name: string;
     email: string;
     ssn: string;
-    sex: "male" | "female" | "other";
+    sex: string;
     telephone_number: string;
     birthDate: string;
     startDate: string;

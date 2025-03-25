@@ -2,18 +2,7 @@ import { getServerSession } from "next-auth";
 import getBookings from "../libs/bookings/getBookings";
 import { authOptions } from "../api/auth/[...nextauth]/[...nextauth]";
 import MyBookingCard from "@/components/MyBookingCard";
-function getImage(color:string,image:string[][]):string{
-  const foundItem = image.find((item) => item[0] === color);
-  return foundItem ? foundItem[1] : '';
-}
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-}
+import { formatDate, getImage } from "../libs/function/function";
 
 export default async function MyBookings() {
   const session = await getServerSession(authOptions); // Fetch the session on the server side
