@@ -1,10 +1,9 @@
 interface Car {
-    image: string[];
     _id: string;
     license: string;
     brand: string;
     model: string;
-    color: string[];
+    image: string[][];
     fuel: string;
     price: number;
     number_of_seats: number;

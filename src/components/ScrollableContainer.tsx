@@ -16,7 +16,7 @@ export default function ScrollableContainer({ cars }: { cars: Car[] }) {
             seat={`${item.number_of_seats} Seat${item.number_of_seats > 1 ? 's' : ''}`}
             transmission={item.transmission}
             driveTrain={item.drivetrain}
-            img={item.image[0]}
+            img={item.image?.[0]?.[1] || "/s-car.png"}
           />
         ))}
       </div>

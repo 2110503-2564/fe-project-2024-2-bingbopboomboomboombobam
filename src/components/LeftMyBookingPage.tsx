@@ -3,6 +3,7 @@ import Image from "next/image";
 
 
 export default function LeftMyBookingPage({booking}:{booking:Booking}) {
+    console.log(booking.color,booking.car.image)
     return (
         <div className="flex flex-col">
             <div className="text-s-grey-100 text-4xl font-bold">

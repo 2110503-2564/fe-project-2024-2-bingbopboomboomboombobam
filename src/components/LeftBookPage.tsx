@@ -24,7 +24,7 @@ export default function LeftBookingPage({car}:{car:Car}) {
                 <ConditionCard isDriver={false} text={`You must be at least ${car.minimum_age} years old`}/> */}
             </div>
             <div className="relative w-[600px] h-[225px]">
-                <Image className="object-cover object-center" src="/s-car.png" fill alt='main car' priority />
+                <Image className="object-cover object-center" src={car.image?.[0]?.[1] || "/s-car.png"} fill alt='main car' priority />
             </div>
             <ColorPicker/>
         </div>

@@ -24,7 +24,7 @@ export default function RightBookingPage({ car }: { car: Car }) {
             try {
                 await postBooking(session.user.token, {
                     car: car._id,
-                    color: "Red",
+                    color: car.image?.[0]?.[0] || "red",
                     name: `${customerForm.name} ${customerForm.surname}`,
                     email: customerForm.email,
                     ssn: customerForm.ssn,

@@ -14,7 +14,7 @@ export default function ShowCar({car,is3d,setIs3d}:{car:Car,is3d:boolean,setIs3d
                 {car.quote}
             </div>
             <div className="w-full grow relative max-w-[1000px] max-h-[350px]">
-                <Image src={car.image[0]||"/s-car.png"} fill alt='car' className="object-contain" />
+                <Image src={car.image?.[0]?.[1] || "/s-car.png"} fill alt="car" className="object-contain" />
             </div>
             <div className="relative right-60">
                 <div className="text-s-grey-100 text-3xl font-bold">
